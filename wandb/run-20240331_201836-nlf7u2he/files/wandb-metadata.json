@@ -1,0 +1,51 @@
+{
+    "os": "Windows-10-10.0.19045-SP0",
+    "python": "3.9.18",
+    "heartbeatAt": "2024-04-01T00:18:38.734213",
+    "startedAt": "2024-04-01T00:18:36.484667",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "Desktop/Bert/sample_1.ipynb",
+    "codePathLocal": null,
+    "root": "C:\\Users\\10130",
+    "host": "MSI",
+    "username": "10130",
+    "executable": "C:\\Users\\10130\\anaconda3\\envs\\pytorch\\python.exe",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2600.0,
+        "min": 0.0,
+        "max": 2701.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2600.0,
+            "min": 0.0,
+            "max": 2701.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 3723.830146789551,
+            "used": 1391.6980323791504
+        }
+    },
+    "gpu": "NVIDIA GeForce GTX 980M",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 980M",
+            "memory_total": 8589934592
+        },
+        {
+            "name": "NVIDIA GeForce GTX 980M",
+            "memory_total": 8589934592
+        }
+    ],
+    "memory": {
+        "total": 63.95363235473633
+    }
+}

@@ -1,0 +1,7 @@
+From the Huggine Face
+
+https://www.philschmid.de/bert-text-classification-in-a-different-language
+
+What is SimpleTransformer?
+
+It is monolingual NLP model.
