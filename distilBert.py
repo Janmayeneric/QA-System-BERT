@@ -119,6 +119,12 @@ def prepared_squad(tokenizer):
 
 
 def initialize_model_with_squad(save_path):
+    """
+    Initialize the model
+    Train it with the SQuAD datasets and save it to setting directory
+    :param save_path: the directory we want our tokenizer and model saved to
+    :return: nothing return, model is saved under the certain directory
+    """
     data_collator, tokenizer, model = initialize_tokenizer_model_collator()
     tokenized_squad, tokenizer = prepared_squad(tokenizer)
     training(output_dir='qa_sample1', model=model, train_dataset=tokenized_squad['train'],
