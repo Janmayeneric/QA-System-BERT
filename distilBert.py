@@ -20,7 +20,7 @@ def initialize_tokenizer_model_collator():
 
 
 def training(output_dir: str, model: AutoModelForQuestionAnswering, train_dataset, test_dataset,
-             tokenizer: AutoTokenizer, data_collator: DefaultDataCollator):
+             tokenizer: AutoTokenizer, data_collator: DefaultDataCollator, save_path):
     training_args = TrainingArguments(
         output_dir=output_dir,
         evaluation_strategy='epoch',
@@ -30,7 +30,7 @@ def training(output_dir: str, model: AutoModelForQuestionAnswering, train_datase
         num_train_epochs=3,
         weight_decay=0.01,
         push_to_hub=False,  # no connection to Hugging HUb
-        report_to=None  # it require the set up of the wandb, will do it probably
+        report_to=['none']  # it require the set up of the wandb, will do it probably
     )
 
     trainer = Trainer(
@@ -43,8 +43,8 @@ def training(output_dir: str, model: AutoModelForQuestionAnswering, train_datase
     )
 
     trainer.train()
-    trainer.save_model('./model')
-    tokenizer.save_pretrained('./model')
+    trainer.save_model(save_path)
+    tokenizer.save_pretrained(save_path)
 
 
 def prepared_squad(tokenizer):
@@ -118,28 +118,39 @@ def prepared_squad(tokenizer):
     return tokenized_squad, tokenizer
 
 
-def initialize_model_with_squad():
+def initialize_model_with_squad(save_path):
     data_collator, tokenizer, model = initialize_tokenizer_model_collator()
     tokenized_squad, tokenizer = prepared_squad(tokenizer)
     training(output_dir='qa_sample1', model=model, train_dataset=tokenized_squad['train'],
-             test_dataset=tokenized_squad['test'], tokenizer=tokenizer, data_collator=data_collator)
+             test_dataset=tokenized_squad['test'], tokenizer=tokenizer, data_collator=data_collator,
+             save_path=save_path)
 
 
 def question_answer(model_path, question, context):
+    """
+    Question Answer function
+    :param model_path: the path to the Directory of the tokenizer and the model
+    :param question: the string of the Question to the context
+    :param context: The text that you want to
+    :return: The Answer to the Question Related to the Context
+    """
     question_answerer = pipeline("question-answering", model=model_path, tokenizer=model_path)
     return question_answerer(question=question, context=context)
 
 
 if __name__ == "__main__":
+    path = './model/model_sample1'
+    # initialize_model_with_squad(path)
+
     question = 'How many programming languages does BLOOM support?'
     context = ("BLOOM has 176 billion parameters and can generate text in 46 languages natural languages and 13 "
                "programming languages.")
-    print(question_answer(model_path='./model', question=question,context=context))
+    print(question_answer(model_path=path, question=question,context=context))
     question = ('How much higher are the post-test odds of a high RDI compared to the pre-test odds following '
                 'a positive test?')
     context = ('Based on a moderate classification threshold from the boosting algorithm, the estimated post-test odds '
                'of a high RDI were 2.20 times higher than the pre-test odds given a positive test, while the '
                'corresponding post-test odds were decreased by 52% given a negative test (sensitivity and specificity '
                'of 0.66 and 0.70, respectively).')
-    print(question_answer(model_path='./model', question=question, context=context))
+    print(question_answer(model_path=path, question=question, context=context))
 
