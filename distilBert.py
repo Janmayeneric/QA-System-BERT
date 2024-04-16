@@ -118,16 +118,17 @@ def prepared_squad(tokenizer):
     return tokenized_squad, tokenizer
 
 
-def initialize_model_with_squad(save_path):
+def initialize_model_with_squad(save_path, model_name):
     """
     Initialize the model
     Train it with the SQuAD datasets and save it to setting directory
     :param save_path: the directory we want our tokenizer and model saved to
     :return: nothing return, model is saved under the certain directory
+
     """
     data_collator, tokenizer, model = initialize_tokenizer_model_collator()
     tokenized_squad, tokenizer = prepared_squad(tokenizer)
-    training(output_dir='qa_sample1', model=model, train_dataset=tokenized_squad['train'],
+    training(output_dir=model_name, model=model, train_dataset=tokenized_squad['train'],
              test_dataset=tokenized_squad['test'], tokenizer=tokenizer, data_collator=data_collator,
              save_path=save_path)
 
@@ -146,6 +147,7 @@ def question_answer(model_path, question, context):
 
 if __name__ == "__main__":
     path = './model/model_sample1'
+    model_name = 'qa_model1'
     # initialize_model_with_squad(path)
 
     question = 'How many programming languages does BLOOM support?'
