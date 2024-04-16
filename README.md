@@ -25,5 +25,8 @@ conda install pytorch==1.31.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cud
 
 Hope it works.
 
+## Instruction
+
+The tutorial is under the directory [tutorial](https://github.com/Janmayeneric/QA-System-BERT/tree/main/tutorial) for you to know how to run the code. 
 
 
