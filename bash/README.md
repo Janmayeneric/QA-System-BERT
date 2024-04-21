@@ -41,3 +41,6 @@ So make sure the shell's configuration as it might cause the conflicts
 
 Most of the codes follow the coding style as the previous one.
 
+**PLEASE CHANGE THE EMAIL RECEIVER on SLURM SETTING**
+
+I do not like to receive tons of the alarm of others' job status T_T

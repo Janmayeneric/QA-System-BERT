@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+# Please change the --mail-user, thanks
 #SBATCH --mem=16G
 #SBATCH --cpus-per-task=2
 #SBATCH --mail-type=FAIL,END
