@@ -30,7 +30,27 @@ I also implemented the bash command to establish a stable conda environment for 
 
 ## How to Initiate Model?
 
-The tutorial is under the directory [tutorial](https://github.com/Janmayeneric/QA-System-BERT/tree/main/tutorial) for you to know how to run the code. 
+The tutorial is under the directory [tutorial](https://github.com/Janmayeneric/QA-System-BERT/tree/main/tutorial) for you to know how the code in distilBERT.py means.
 
+## Procedure
+Again, I recommend you to looks through the [Bash Description](https://github.com/Janmayeneric/QA-System-BERT/tree/main/bash) before this section
+
+First of all, I assume you are in the directory of ~/QA-System-BERT
+
+### First Run, Initialization Example
+You need to give the permission to /QA-System-BERT/bash/install_conda_environment.sh
+```sh
+chmod +x ./bash/install_conda_environment.sh
+```
+
+Then run it to install conda Environment
+```sh
+./bash/install_conda_environment.sh
+```
+
+After installing conda environment, you can now give SLURM the job to do, like initialize a model
+```sh
+sbatch ./bash/initial_model_script.sh
+```
 
 
