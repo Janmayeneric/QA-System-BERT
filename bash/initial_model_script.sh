@@ -13,6 +13,7 @@ source  ~/.bashrc
 
 conda activate qamodel
 
-python3 distilBert.py
+# it is based on my working directory, make sure it correct when you put it in different directory
+python3 ../distilBert.py
 
 conda deactivate
