@@ -25,8 +25,12 @@ conda install pytorch==1.31.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cud
 
 Hope it works.
 
-## Instruction
+### ON Unix Cluster ([JHPCE](https://jhpce.jhu.edu/) approach)
+I also implemented the bash command to establish a stable conda environment for the code to run. Check from this [directory](https://github.com/Janmayeneric/QA-System-BERT/tree/main/bash).
+
+## How to Initiate Model?
 
 The tutorial is under the directory [tutorial](https://github.com/Janmayeneric/QA-System-BERT/tree/main/tutorial) for you to know how to run the code. 
+
 
 
